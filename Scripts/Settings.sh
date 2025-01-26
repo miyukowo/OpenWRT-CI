@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #自定义所有设置
-echo "当前网关IP: $WRT_IP"
+echo "Gateway IP: $WRT_IP"
 # 支持 ** 查找子目录
 shopt -s globstar
 
@@ -63,7 +63,6 @@ if [ -f "./package/feeds/luci/luci-app-openvpn-server/root/etc/config/openvpn" ]
 fi
 
 echo "CONFIG_PACKAGE_luci=y" >> ./.config
-echo "CONFIG_LUCI_LANG_zh_Hans=y" >> ./.config
 echo "CONFIG_PACKAGE_luci-theme-$WRT_THEME=y" >> ./.config
 # echo "CONFIG_PACKAGE_luci-app-$WRT_THEME-config=y" >> ./.config
 
