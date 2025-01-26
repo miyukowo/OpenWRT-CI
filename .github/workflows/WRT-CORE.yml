@@ -1,4 +1,4 @@
-#云编译公用核心
+#Cloud compilation public core
 name: WRT-CORE
 
 on:
@@ -75,7 +75,7 @@ jobs:
           echo "WRT_VER=$WRT_VER" >> $GITHUB_ENV
           echo "WRT_TYPE=$WRT_TYPE" >> $GITHUB_ENV
 
-      - name: Clone Code
+      - name: Clone The Source Code
         run: |
           git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO ./wrt/
 
@@ -102,7 +102,7 @@ jobs:
             echo "WRT_NEED_COMPILE=true" >> $GITHUB_ENV
           else
             echo "WRT_NEED_COMPILE=false" >> $GITHUB_ENV
-            echo "!!!过去76小时内无更新,跳过编译流程!!!"
+            echo "There are no updates in the past 76 hours, skipping the compilation process!"
           fi
 
       - name: Free Disk Space
@@ -128,7 +128,7 @@ jobs:
           sudo -E apt -yqq install dos2unix libfuse-dev
           sudo bash -c 'bash <(curl -sL https://build-scripts.immortalwrt.org/init_build_environment.sh)'
           sudo -E systemctl daemon-reload
-          sudo -E timedatectl set-timezone "Asia/Shanghai"
+          sudo -E timedatectl set-timezone "Asia/Ho_Chi_Minh"
 
 
       - name: Check Scripts
@@ -260,14 +260,17 @@ jobs:
           files: ./wrt/upload/*.*
           body: |
             **This is ${{ env.WRT_NAME }} OpenWrt Firmware for ${{ env.WRT_TYPE }}**
-            ### 📒 固件信息(无WIFI)
-            - 🖥️ 这是  ${{ env.WRT_TYPE }} 使用的 OpenWrt 固件
-            - 💻 平台: ${{ env.WRT_TARGET }}
-            - ⚽ 源码: ${{ env.WRT_SOURCE }}
-            - 💝 分支: ${{ env.WRT_BRANCH }}
-            - 🌐 地址: **${{ env.WRT_IP }}**
-            - 🔑 密码: **${{ env.WRT_PW }}**
-            ### 🧊 固件版本
-            - 固件内核版本：**${{ env.WRT_KVER }}**
-            - 固件编译前最后一次➦[主源码](${{ env.WRT_REPO }})更新记录
+            ### 📒 Firmware Information
+            - 🖥️ This is the OpenWrt firmware for  ${{ env.WRT_TYPE }}
+            - 💻 Platform: ${{ env.WRT_TARGET }}
+            - ⚽ Source code: ${{ env.WRT_SOURCE }}
+            - 💝 Branch: ${{ env.WRT_BRANCH }}
+            - 🌐 IP Address: **${{ env.WRT_IP }}**
+            - 🔑 Password: **${{ env.WRT_PW }}**
+            ### 🧊 Firmware Version
+            - Firmware kernel version：**${{ env.WRT_KVER }}**
+            - Last update record of the main source code before firmware compilation ➦ [Main Source](${{ env.WRT_REPO }})更新记录
             - ${{ env.VERSION_INFO }}
+            ### Other Information
+            - Compiled by: @${{ github.actor }}
+            - Workflow Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
