@@ -1,8 +1,9 @@
-#JDCLOUD
+# JDCLOUD
 CONFIG_TARGET_qualcommax=y
 CONFIG_TARGET_qualcommax_ipq60xx=y
 CONFIG_TARGET_MULTI_PROFILE=y
-#设备列表
+
+# List of devices
 CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_8devices_mango-dvk=n
 CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_cambiumnetworks_xe3-4=n
 CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_linksys_mr7350=n
@@ -19,7 +20,8 @@ CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_redmi_ax5-jdcloud=n
 CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_redmi_ax5=n
 CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_xiaomi_ax1800=n
 CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_zn_m2=y
-#WIFI驱动
+
+# Wifi drivers
 CONFIG_PACKAGE_kmod-ath11k=y
 CONFIG_PACKAGE_kmod-ath11k-ahb=y
 CONFIG_PACKAGE_kmod-ath11k-pci=y
@@ -27,11 +29,13 @@ CONFIG_PACKAGE_ath11k-firmware-ipq6018=y
 CONFIG_PACKAGE_ath11k-firmware-qcn9074=y
 CONFIG_PACKAGE_wpad-openssl=y
 CONFIG_PACKAGE_hostapd-common=y
-#组件调整
+
+# Component adjustments
 CONFIG_PACKAGE_firewall=y
 CONFIG_PACKAGE_iptables=y
 CONFIG_PACKAGE_ip6tables=y
 CONFIG_PACKAGE_ip6tables-extra=y
 CONFIG_PACKAGE_ip6tables-mod-nat=y
-#插件调整
+
+# Package adjustments
 CONFIG_PACKAGE_luci-app-ssr-plus=n
